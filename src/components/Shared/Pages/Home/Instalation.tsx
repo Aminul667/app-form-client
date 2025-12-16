@@ -84,6 +84,57 @@ const Instalation = () => {
               </div>
             </div>
           </div>
+
+          <div className="rounded-xl border-2 border-slate-300 bg-white p-6 shadow-lg">
+            <div className="flex items-start gap-4">
+              <div className="flex items-center justify-center w-8 h-8 rounded-full bg-blue-600 text-white font-bold text-sm flex-shrink-0">
+                4
+              </div>
+              <div className="flex-1">
+                <h3 className="text-lg font-bold mb-2 text-slate-900">
+                  Peer Dependencies
+                </h3>
+                <div className="bg-slate-900 text-white rounded-lg px-4 py-3 font-mono text-sm mb-2">
+                  <span className="text-slate-400">$</span>{" "}
+                  <span className="text-blue-400">npm</span>{" "}
+                  <span className="text-slate-300">install</span>{" "}
+                  <span className="text-green-400">
+                    react-hook-form zod @hookform/resolvers
+                    class-variance-authority
+                  </span>
+                </div>
+                <p className="text-sm text-slate-600">
+                  You must already have these installed in your app
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="rounded-xl border-2 border-slate-300 bg-white p-6 shadow-lg">
+            <div className="flex items-start gap-4">
+              <div className="flex items-center justify-center w-8 h-8 rounded-full bg-blue-600 text-white font-bold text-sm flex-shrink-0">
+                5
+              </div>
+              <div className="flex-1">
+                <h3 className="text-lg font-bold mb-2 text-slate-900">
+                  ShadcnUI components
+                </h3>
+                <div className="bg-slate-900 text-white rounded-lg px-4 py-3 font-mono text-sm mb-2">
+                  <span className="text-slate-400">$</span>{" "}
+                  <span className="text-blue-400">npx shadcn@latest</span>{" "}
+                  <span className="text-slate-300">add</span>{" "}
+                  <span className="text-green-400">
+                    input label checkbox select
+                  </span>
+                </div>
+                <p className="text-sm text-slate-600">
+                  And make sure shadcn/ui components (like input, label, etc.)
+                  are generated if you want to use the app-form&apos;s
+                  components
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

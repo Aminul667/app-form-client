@@ -13,6 +13,10 @@ const Footer = () => {
             <span className="font-semibold">app-form</span>
             <span className="mx-2 text-slate-600">•</span>
             <span className="text-slate-400">ISC License</span>
+            <span className="mx-2 text-slate-600">|</span>
+            <span className="text-slate-400">
+              Built by Md Aminul Islam ( Rahat )
+            </span>
           </div>
           <div className="flex items-center gap-6 text-sm">
             <Link
