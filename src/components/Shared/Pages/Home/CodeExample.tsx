@@ -1,4 +1,38 @@
-import React from "react";
+import CodeBlock from "../../CodeBlock/CodeBlock";
+
+const homeCodeExample = `
+const SimpleForm = () => {
+  const onSubmit = (data: THomeCode) => {
+    console.log(data);
+  };
+
+  return (
+    <div className="max-w-xl m-auto">
+      <AppForm<TFullName>
+        schema={fullNameSchema}
+        onSubmit={onSubmit}
+        className="px-6 pb-6 space-y-4"
+      >
+        {({ register, formState: { errors } }) => (
+          <>
+            <AppInputField
+              name="fullName"
+              type="text"
+              register={register}
+              errors={errors}
+            />
+            <Button type="submit" className="w-full">
+              Submit
+            </Button>
+          </>
+        )}
+      </AppForm>
+    </div>
+  );
+};
+
+export default SimpleForm;
+`;
 
 const CodeExample = () => {
   return (
@@ -6,13 +40,13 @@ const CodeExample = () => {
       <div className="mx-auto max-w-6xl px-6 py-20">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">
-            Simple, powerful API
+            Simple and Powerful
           </h2>
           <p className="text-lg text-slate-600">
             Define your schema with Zod, generate type-safe forms in seconds.
           </p>
         </div>
-        <div className="rounded-xl border border-slate-300 bg-white overflow-hidden shadow-2xl">
+        {/* <div className="rounded-xl border border-slate-300 bg-white overflow-hidden shadow-2xl">
           <div className="border-b border-slate-200 px-4 py-3 flex items-center gap-2 bg-slate-50">
             <div className="flex gap-1.5">
               <div className="w-3 h-3 rounded-full bg-red-400" />
@@ -131,7 +165,9 @@ const CodeExample = () => {
               </code>
             </pre>
           </div>
-        </div>
+        </div> */}
+
+        <CodeBlock language="tsx" code={homeCodeExample} />
       </div>
     </section>
   );

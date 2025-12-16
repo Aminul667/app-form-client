@@ -16,6 +16,13 @@ const imageSchema = z.custom<File>(
   }
 );
 
+export const homeCodeSchema = z.object({
+  firstName: z.string().min(1, "First name is required"),
+  lastName: z.string().min(1, "Last name is required"),
+});
+
+export type THomeCode = z.infer<typeof homeCodeSchema>;
+
 export const basicFunctionSchema = z.object({
   firstName: z.string().min(1, "First name is required"),
   lastName: z.string().min(1, "Last name is required"),
