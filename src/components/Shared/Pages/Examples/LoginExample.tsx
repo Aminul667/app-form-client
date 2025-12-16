@@ -1,5 +1,3 @@
-"use client";
-
 import { AppForm } from "@/components/app-form/app-form";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -8,7 +6,7 @@ import { Eye, EyeOff, Lock, Mail } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 
-const Login = () => {
+const LoginExample = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   const onSubmit = (data: TLoginFormValue) => {
@@ -17,7 +15,7 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-linear-to-b from-slate-50 to-slate-100 flex items-center justify-center p-4">
+    <div className="bg-linear-to-b from-slate-50 to-slate-100 flex items-center justify-center p-4">
       <div className="w-full max-w-sm">
         {/* Card */}
         <div className="rounded-2xl bg-white shadow-xl ring-1 ring-slate-200 overflow-hidden">
@@ -178,4 +176,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginExample;

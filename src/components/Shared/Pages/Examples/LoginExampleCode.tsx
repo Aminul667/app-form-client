@@ -1,3 +1,20 @@
+import CodeBlock from "../../CodeBlock/CodeBlock";
+
+const zodLoginSchema = `
+export const loginSchema = z.object({
+  email: z.string().refine((val) => val.includes("@"), {
+    message: "Invalid email address",
+  }),
+
+  password: z.string().min(6, "Password must be at least 6 characters"),
+
+  rememberMe: z.boolean().optional(),
+});
+
+export type TLoginFormValue = z.infer<typeof loginSchema>;
+`;
+
+const loginComponent = `
 "use client";
 
 import { AppForm } from "@/components/app-form/app-form";
@@ -179,3 +196,21 @@ const Login = () => {
 };
 
 export default Login;
+`;
+
+const LoginExampleCode = () => {
+  return (
+    <>
+      <div>
+        <p>zod login schema</p>
+        <CodeBlock language="ts" code={zodLoginSchema} />
+      </div>
+      <div>
+        <p>Login Component</p>
+        <CodeBlock language="ts" code={loginComponent} />
+      </div>
+    </>
+  );
+};
+
+export default LoginExampleCode;
