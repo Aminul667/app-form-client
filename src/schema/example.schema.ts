@@ -16,7 +16,7 @@ const imageSchema = z.custom<File>(
   }
 );
 
-export const exampleSchema = z.object({
+export const basicFunctionSchema = z.object({
   firstName: z.string().min(1, "First name is required"),
   lastName: z.string().min(1, "Last name is required"),
   age: z.preprocess((val) => {
@@ -49,7 +49,7 @@ export const exampleSchema = z.object({
   }),
 });
 
-export type TExample = z.infer<typeof exampleSchema>;
+export type TBasicFunction = z.infer<typeof basicFunctionSchema>;
 
 export const loginSchema = z.object({
   email: z.string().refine((val) => val.includes("@"), {

@@ -4,6 +4,8 @@ import { Code2, Package } from "lucide-react";
 import { useState } from "react";
 import LoginExample from "./LoginExample";
 import LoginExampleCode from "./LoginExampleCode";
+import BasicFunction from "./BasicFunction";
+import BasicFunctionCode from "./BasicFunctionCode";
 
 const Examples = () => {
   const [activeTab, setActiveTab] = useState<"preview" | "code">("preview");
@@ -17,11 +19,10 @@ const Examples = () => {
       code: <LoginExampleCode />,
     },
     {
-      title: "Login Form",
-      description: "Email and password authentication",
-      //   preview: <LoginFormPreview />,
-      preview: <h2>This is 2</h2>,
-      code: `import { AppForm } from "@/components/app-form/app-form"}`,
+      title: "Basic Functions",
+      description: "Basic functions from react-hook-form",
+      preview: <BasicFunction />,
+      code: <BasicFunctionCode />,
     },
     {
       title: "Complete Form",

@@ -1,6 +1,8 @@
 import CodeBlock from "../../CodeBlock/CodeBlock";
 
 const zodLoginSchema = `
+import z from "zod";
+
 export const loginSchema = z.object({
   email: z.string().refine((val) => val.includes("@"), {
     message: "Invalid email address",
