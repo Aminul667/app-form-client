@@ -6,6 +6,8 @@ import LoginExample from "./LoginExample";
 import LoginExampleCode from "./LoginExampleCode";
 import BasicFunction from "./BasicFunction";
 import BasicFunctionCode from "./BasicFunctionCode";
+import WatchFunction from "./WatchFunction";
+import WatchFunctionCode from "./WatchFunctionCode";
 
 const Examples = () => {
   const [activeTab, setActiveTab] = useState<"preview" | "code">("preview");
@@ -25,10 +27,10 @@ const Examples = () => {
       code: <BasicFunctionCode />,
     },
     {
-      title: "Complete Form",
-      description: "All field types with validation",
-      preview: <h2>This is 3</h2>,
-      code: `import { AppForm } from "@/components/app-form/app-form"}`,
+      title: "Advanced Functionality",
+      description: "Advance functions from react-hook-form",
+      preview: <WatchFunction />,
+      code: <WatchFunctionCode />,
     },
   ];
 
@@ -39,7 +41,7 @@ const Examples = () => {
       <section className="mx-auto py-12">
         <div className="grid lg:grid-cols-12 gap-8">
           {/* Sidebar */}
-          <div className="lg:col-span-3">
+          <div className="lg:col-span-3 border border-slate-200 rounded-lg p-4">
             <div className="sticky top-24">
               <h2 className="text-sm font-bold text-slate-900 mb-3 uppercase tracking-wide">
                 Examples
@@ -49,7 +51,7 @@ const Examples = () => {
                   <button
                     key={index}
                     onClick={() => setActiveExample(index)}
-                    className={`w-full text-left px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
+                    className={`w-full text-left px-4 py-3 rounded-lg text-sm font-medium transition-colors cursor-pointer ${
                       activeExample === index
                         ? "bg-blue-600 text-white"
                         : "text-slate-700 hover:bg-slate-100"
@@ -106,14 +108,12 @@ const Examples = () => {
                   {currentExample.preview}
                 </div>
               ) : (
-                <div>
-                  <div className="p-6 bg-slate-900 overflow-x-auto min-h-125">
-                    <pre className="text-sm leading-relaxed">
-                      <code className="text-slate-300 font-mono">
-                        {currentExample.code}
-                      </code>
-                    </pre>
-                  </div>
+                <div className="p-6 bg-slate-900 overflow-x-auto min-h-125">
+                  <pre className="text-sm leading-relaxed">
+                    <code className="text-slate-300 font-mono">
+                      {currentExample.code}
+                    </code>
+                  </pre>
                 </div>
               )}
             </div>

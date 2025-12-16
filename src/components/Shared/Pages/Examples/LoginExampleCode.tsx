@@ -209,7 +209,7 @@ const LoginExampleCode = () => {
       </div>
       <div>
         <p>Login Component</p>
-        <CodeBlock language="ts" code={loginComponent} />
+        <CodeBlock language="tsx" code={loginComponent} />
       </div>
     </>
   );

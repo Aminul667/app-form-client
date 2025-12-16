@@ -18,13 +18,13 @@ const Navbar = () => {
             </Link>
             <div className="hidden md:flex items-center gap-6 text-sm font-medium">
               <Link
-                href="#features"
+                href="/#features"
                 className="text-slate-600 hover:text-slate-900 transition-colors"
               >
                 Features
               </Link>
               <Link
-                href="#installation"
+                href="/#installation"
                 className="text-slate-600 hover:text-slate-900 transition-colors"
               >
                 Installation
@@ -36,15 +36,16 @@ const Navbar = () => {
                 Examples
               </Link>
               <Link
-                href="https://github.com"
+                href="https://github.com/Aminul667/app-form"
                 className="text-slate-600 hover:text-slate-900 transition-colors"
+                target="_blank"
               >
                 GitHub
               </Link>
             </div>
           </div>
           <Link
-            href="#installation"
+            href="/#installation"
             className="hidden md:inline-flex items-center gap-2 rounded-lg bg-blue-600 text-white px-4 py-2 text-sm font-semibold hover:bg-blue-700 transition-colors shadow-sm"
           >
             Get Started

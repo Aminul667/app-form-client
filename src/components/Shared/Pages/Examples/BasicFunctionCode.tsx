@@ -245,7 +245,7 @@ const BasicFunctionCode = () => {
       </div>
       <div>
         <p>Basic Function component</p>
-        <CodeBlock language="ts" code={basicFunctionComponent} />
+        <CodeBlock language="tsx" code={basicFunctionComponent} />
       </div>
     </>
   );

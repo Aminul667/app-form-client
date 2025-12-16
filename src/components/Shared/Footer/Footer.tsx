@@ -12,30 +12,31 @@ const Footer = () => {
             </div>
             <span className="font-semibold">app-form</span>
             <span className="mx-2 text-slate-600">•</span>
-            <span className="text-slate-400">MIT License</span>
+            <span className="text-slate-400">ISC License</span>
           </div>
           <div className="flex items-center gap-6 text-sm">
             <Link
-              href="#features"
+              href="/#features"
               className="text-slate-400 hover:text-white transition-colors"
             >
               Features
             </Link>
             <Link
-              href="#installation"
+              href="/#installation"
               className="text-slate-400 hover:text-white transition-colors"
             >
               Installation
             </Link>
             <Link
-              href="#examples"
+              href="/examples"
               className="text-slate-400 hover:text-white transition-colors"
             >
               Examples
             </Link>
             <Link
-              href="https://github.com"
+              href="https://github.com/Aminul667/app-form"
               className="text-slate-400 hover:text-white transition-colors"
+              target="_blank"
             >
               GitHub
             </Link>

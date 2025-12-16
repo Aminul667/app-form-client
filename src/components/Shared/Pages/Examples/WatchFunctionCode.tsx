@@ -1,6 +1,60 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-"use client";
+import CodeBlock from "../../CodeBlock/CodeBlock";
 
+const zodWatchFunctionSchema = `
+import z from "zod";
+
+const genderValues = ["male", "female", "other"] as const;
+
+const imageSchema = z.custom<File>(
+  (file) => {
+    return (
+      file instanceof File &&
+      file.size <= 10 * 1024 * 1024 &&
+      file.type.startsWith("image/")
+    );
+  },
+  {
+    message: "Each file must be an image under 10MB",
+  }
+);
+
+export const basicFunctionSchema = z.object({
+  firstName: z.string().min(1, "First name is required"),
+  lastName: z.string().min(1, "Last name is required"),
+  age: z.preprocess((val) => {
+    const number = Number(val);
+    return isNaN(number) ? undefined : number;
+  }, z.number().int().positive("Age must be a positive integer")),
+  gender: z.preprocess(
+    (val) => (typeof val === "string" && val.trim() === "" ? undefined : val),
+    z
+      .string()
+      .optional()
+      .refine(
+        (val): val is string => !!val && genderValues.includes(val as any),
+        {
+          message: "Gender is required",
+        }
+      )
+  ),
+  images: z
+    .any()
+    .transform((val) => (Array.isArray(val) ? val : []))
+    .pipe(
+      z
+        .array(imageSchema)
+        .min(1, "At least one image is required")
+        .max(10, "You can upload up to 10 images")
+    ),
+  termsAndCondition: z.boolean().refine((val) => val === true, {
+    message: "You must agree to the terms and conditions",
+  }),
+});
+
+export type TBasicFunction = z.infer<typeof basicFunctionSchema>;
+`;
+
+const watchFunctionComponent = `
 import { AppForm } from "@/components/app-form/app-form";
 import AppCheckbox from "@/components/app-form/fields/app-checkbox";
 import AppFileUploader from "@/components/app-form/fields/app-file-uploader";
@@ -12,7 +66,7 @@ import { Handshake, Upload } from "lucide-react";
 import { useEffect, useState } from "react";
 import { UseFormReturn } from "react-hook-form";
 
-const Test = () => {
+const WatchFunction = () => {
   const [formMethods, setFormMethods] = useState<UseFormReturn<any> | null>(
     null
   );
@@ -67,8 +121,7 @@ const Test = () => {
   };
 
   return (
-    <div>
-      <h2>Example</h2>
+    <div className="bg-white shadow-xl ring-1 ring-slate-200 overflow-hidden p-10 rounded-2xl">
       <AppForm<TBasicFunction>
         onMethods={setFormMethods}
         schema={basicFunctionSchema}
@@ -103,30 +156,32 @@ const Test = () => {
                 inputClass="bg-white border-gray-500/30 focus:border-gray-700 focus:ring-gray-900/20"
                 labelClass="text-sm font-medium flex items-center"
               />
-              <AppInputField
-                name="age"
-                type="number"
-                label="Age *"
-                placeholder="Age"
-                register={register}
-                errors={errors}
-                containerClass="space-y-2"
-                inputClass="bg-white border-gray-500/30 focus:border-gray-700 focus:ring-gray-900/20"
-                labelClass="text-sm font-medium flex items-center"
-              />
-              <AppSelectItem
-                name="gender"
-                control={control}
-                label="Gender *"
-                placeholder="Select your gender"
-                options={genderTypeConstants}
-                errors={errors}
-                containerClass="space-y-2"
-                labelClass="text-sm font-medium mb-2"
-                triggerClass="w-full border-gray-500/30 focus:border-gray-700 focus:ring-gray-900/20"
-                contentClass="bg-white border-gray-500/30"
-                itemClass="hover:bg-[#B1AB86]/10"
-              />
+              <div className="flex gap-5">
+                <AppInputField
+                  name="age"
+                  type="number"
+                  label="Age *"
+                  placeholder="Age"
+                  register={register}
+                  errors={errors}
+                  containerClass="space-y-2 w-full"
+                  inputClass="bg-white border-gray-500/30 focus:border-gray-700 focus:ring-gray-900/20"
+                  labelClass="text-sm font-medium flex items-center"
+                />
+                <AppSelectItem
+                  name="gender"
+                  control={control}
+                  label="Gender *"
+                  placeholder="Select your gender"
+                  options={genderTypeConstants}
+                  errors={errors}
+                  containerClass="space-y-2 w-full"
+                  labelClass="text-sm font-medium mb-2"
+                  triggerClass="w-full border-gray-500/30 focus:border-gray-700 focus:ring-gray-900/20"
+                  contentClass="bg-white border-gray-500/30"
+                  itemClass="hover:bg-[#B1AB86]/10"
+                />
+              </div>
               <AppCheckbox
                 name="termsAndCondition"
                 control={control}
@@ -156,28 +211,28 @@ const Test = () => {
                   </div>
                 )}
               />
-              <Button type="submit" className="w-full">
+              <Button type="submit" className="w-full cursor-pointer">
                 Save
               </Button>
 
               <div className="flex gap-3">
                 <Button
+                  className="cursor-pointer bg-blue-600 text-white px-4 py-2 text-sm font-semibold hover:bg-blue-700 transition-colors"
                   type="button"
-                  variant="secondary"
                   onClick={handleSetValues}
                 >
                   Set Values
                 </Button>
                 <Button
+                  className="cursor-pointer bg-blue-600 text-white px-4 py-2 text-sm font-semibold hover:bg-blue-700 transition-colors"
                   type="button"
-                  variant="outline"
                   onClick={handleGetValues}
                 >
                   Get Values
                 </Button>
                 <Button
+                  className="cursor-pointer bg-red-600 text-white px-4 py-2 text-sm font-semibold hover:bg-red-700 transition-colors"
                   type="button"
-                  variant="destructive"
                   onClick={handleReset}
                 >
                   Reset
@@ -191,4 +246,22 @@ const Test = () => {
   );
 };
 
-export default Test;
+export default WatchFunction;
+`;
+
+const WatchFunctionCode = () => {
+  return (
+    <>
+      <div>
+        <p>zod schema</p>
+        <CodeBlock language="ts" code={zodWatchFunctionSchema} />
+      </div>
+      <div>
+        <p>Watch Function component</p>
+        <CodeBlock language="tsx" code={watchFunctionComponent} />
+      </div>
+    </>
+  );
+};
+
+export default WatchFunctionCode;
