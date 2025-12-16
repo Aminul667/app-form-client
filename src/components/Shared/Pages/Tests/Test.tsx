@@ -2,15 +2,15 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Button } from "./ui/button";
+import { Button } from "../../../ui/button";
 import { UseFormReturn } from "react-hook-form";
 import { exampleSchema, TExample } from "@/schema/example.schema";
-import { AppForm } from "./app-form/app-form";
-import AppInputField from "./app-form/fields/app-input-field";
-import AppSelectItem from "./app-form/fields/app-select-item";
-import AppCheckbox from "./app-form/fields/app-checkbox";
+import { AppForm } from "../../../app-form/app-form";
+import AppInputField from "../../../app-form/fields/app-input-field";
+import AppSelectItem from "../../../app-form/fields/app-select-item";
+import AppCheckbox from "../../../app-form/fields/app-checkbox";
 import { Handshake, Upload } from "lucide-react";
-import AppFileUploader from "./app-form/fields/app-file-uploader";
+import AppFileUploader from "../../../app-form/fields/app-file-uploader";
 
 const Test = () => {
   const [formMethods, setFormMethods] = useState<UseFormReturn<any> | null>(

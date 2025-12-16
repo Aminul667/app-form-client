@@ -30,7 +30,7 @@ const Navbar = () => {
                 Installation
               </Link>
               <Link
-                href="#examples"
+                href="/examples"
                 className="text-slate-600 hover:text-slate-900 transition-colors"
               >
                 Examples

@@ -50,3 +50,15 @@ export const exampleSchema = z.object({
 });
 
 export type TExample = z.infer<typeof exampleSchema>;
+
+export const loginSchema = z.object({
+  email: z.string().refine((val) => val.includes("@"), {
+    message: "Invalid email address",
+  }),
+
+  password: z.string().min(6, "Password must be at least 6 characters"),
+
+  rememberMe: z.boolean().optional(),
+});
+
+export type TLoginFormValue = z.infer<typeof loginSchema>;
