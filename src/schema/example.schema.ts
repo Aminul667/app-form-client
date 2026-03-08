@@ -72,6 +72,33 @@ export const inputFieldExampleSchema = z.object({
 
 export type TInputFieldExample = z.infer<typeof inputFieldExampleSchema>;
 
+const validCountries = ["us", "uk", "ca", "au"] as const;
+const validRoles = ["developer", "designer", "manager", "analyst"] as const;
+const validExperience = ["junior", "mid", "senior"] as const;
+
+export const selectItemExampleSchema = z.object({
+  country: z
+    .string({ message: "Country is required" })
+    .min(1, "Country is required")
+    .refine((val) => validCountries.includes(val as any), {
+      message: "Invalid country",
+    }),
+  role: z
+    .string({ message: "Role is required" })
+    .min(1, "Role is required")
+    .refine((val) => validRoles.includes(val as any), {
+      message: "Invalid role",
+    }),
+  experience: z
+    .string({ message: "Experience level is required" })
+    .min(1, "Experience level is required")
+    .refine((val) => validExperience.includes(val as any), {
+      message: "Invalid experience level",
+    }),
+});
+
+export type TSelectItemExample = z.infer<typeof selectItemExampleSchema>;
+
 export const loginSchema = z.object({
   email: z.string().refine((val) => val.includes("@"), {
     message: "Invalid email address",

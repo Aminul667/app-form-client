@@ -10,6 +10,8 @@ import WatchFunction from "./WatchFunction";
 import WatchFunctionCode from "./WatchFunctionCode";
 import InputFieldExample from "./InputFieldExample";
 import InputFieldExampleCode from "./InputFieldExampleCode";
+import SelectItemExample from "./SelectItemExample";
+import SelectItemExampleCode from "./SelectItemExampleCode";
 import InputFieldArrayExample from "./InputFieldArrayExample";
 import InputFieldArrayExampleCode from "./InputFieldArrayExampleCode";
 
@@ -19,16 +21,22 @@ const Examples = () => {
 
   const examples = [
     {
-      title: "Basic Form",
-      description: "Simple form without any UI components",
-      preview: <LoginExample />,
-      code: <LoginExampleCode />,
-    },
-    {
       title: "Input Field",
       description: "Form with only input fields",
       preview: <InputFieldExample />,
       code: <InputFieldExampleCode />,
+    },
+    {
+      title: "Select Item",
+      description: "Form with only select fields",
+      preview: <SelectItemExample />,
+      code: <SelectItemExampleCode />,
+    },
+    {
+      title: "Basic Form",
+      description: "Simple form without any UI components",
+      preview: <LoginExample />,
+      code: <LoginExampleCode />,
     },
     {
       title: "Basic Functions",
