@@ -58,6 +58,20 @@ export const basicFunctionSchema = z.object({
 
 export type TBasicFunction = z.infer<typeof basicFunctionSchema>;
 
+export const inputFieldExampleSchema = z.object({
+  firstName: z.string().min(1, "First name is required"),
+  lastName: z.string().min(1, "Last name is required"),
+  email: z.string().min(1, "Email is required").email("Invalid email address"),
+
+  age: z.preprocess((val) => {
+    if (val === "" || val === undefined || val === null) return undefined;
+    const num = Number(val);
+    return isNaN(num) ? undefined : num;
+  }, z.number({ message: "Age must be a number" }).int("Age must be an integer").positive("Age must be a positive integer")),
+});
+
+export type TInputFieldExample = z.infer<typeof inputFieldExampleSchema>;
+
 export const loginSchema = z.object({
   email: z.string().refine((val) => val.includes("@"), {
     message: "Invalid email address",

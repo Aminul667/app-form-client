@@ -1,5 +1,3 @@
-import React from "react";
-
 const Instalation = () => {
   return (
     <section
@@ -46,15 +44,16 @@ const Instalation = () => {
                 </h3>
                 <div className="bg-slate-900 text-white rounded-lg px-4 py-3 font-mono text-sm mb-3">
                   <span className="text-slate-400">$</span>{" "}
-                  <span className="text-blue-400">app-form</span>{" "}
+                  <span className="text-blue-400">npx app-form</span>{" "}
                   <span className="text-slate-300">list</span>
                 </div>
-                <div className="bg-slate-50 rounded-lg px-4 py-3 text-sm text-slate-700 font-mono border border-slate-200">
-                  app-form{"\n"}
-                  app-input-field{"\n"}
-                  app-checkbox{"\n"}
-                  app-select-item{"\n"}
-                  app-file-uploader
+                <div className="bg-slate-50 rounded-lg px-4 py-3 text-sm text-slate-700 font-mono border border-slate-200 space-y-1">
+                  <p>app-form</p>
+                  <p>app-input-field</p>
+                  <p>app-checkbox</p>
+                  <p>app-select-item</p>
+                  <p>app-file-uploader</p>
+                  <p>app-input-field-array</p>
                 </div>
               </div>
             </div>
@@ -71,14 +70,14 @@ const Instalation = () => {
                 </h3>
                 <div className="bg-slate-900 text-white rounded-lg px-4 py-3 font-mono text-sm mb-2">
                   <span className="text-slate-400">$</span>{" "}
-                  <span className="text-blue-400">app-form</span>{" "}
+                  <span className="text-blue-400">npx app-form</span>{" "}
                   <span className="text-slate-300">add</span>{" "}
                   <span className="text-green-400">app-input-field</span>
                 </div>
                 <p className="text-sm text-slate-600">
                   Or install everything at once with{" "}
                   <code className="bg-slate-100 px-2 py-0.5 rounded text-blue-600 font-mono">
-                    app-form init
+                    npx app-form init
                   </code>
                 </p>
               </div>

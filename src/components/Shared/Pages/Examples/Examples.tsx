@@ -8,6 +8,8 @@ import BasicFunction from "./BasicFunction";
 import BasicFunctionCode from "./BasicFunctionCode";
 import WatchFunction from "./WatchFunction";
 import WatchFunctionCode from "./WatchFunctionCode";
+import InputFieldExample from "./InputFieldExample";
+import InputFieldExampleCode from "./InputFieldExampleCode";
 import InputFieldArrayExample from "./InputFieldArrayExample";
 import InputFieldArrayExampleCode from "./InputFieldArrayExampleCode";
 
@@ -21,6 +23,12 @@ const Examples = () => {
       description: "Simple form without any UI components",
       preview: <LoginExample />,
       code: <LoginExampleCode />,
+    },
+    {
+      title: "Input Field",
+      description: "Form with only input fields",
+      preview: <InputFieldExample />,
+      code: <InputFieldExampleCode />,
     },
     {
       title: "Basic Functions",
