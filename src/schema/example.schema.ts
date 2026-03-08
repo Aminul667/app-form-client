@@ -99,6 +99,19 @@ export const selectItemExampleSchema = z.object({
 
 export type TSelectItemExample = z.infer<typeof selectItemExampleSchema>;
 
+export const checkboxExampleSchema = z.object({
+  termsAndCondition: z.boolean().refine((val) => val === true, {
+    message: "You must agree to the terms and conditions",
+  }),
+  privacy: z.boolean().refine((val) => val === true, {
+    message: "You must accept the privacy policy",
+  }),
+  newsletter: z.boolean().optional(),
+  notifications: z.boolean().optional(),
+});
+
+export type TCheckboxExample = z.infer<typeof checkboxExampleSchema>;
+
 export const loginSchema = z.object({
   email: z.string().refine((val) => val.includes("@"), {
     message: "Invalid email address",

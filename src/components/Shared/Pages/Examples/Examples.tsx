@@ -12,6 +12,8 @@ import InputFieldExample from "./InputFieldExample";
 import InputFieldExampleCode from "./InputFieldExampleCode";
 import SelectItemExample from "./SelectItemExample";
 import SelectItemExampleCode from "./SelectItemExampleCode";
+import CheckboxExample from "./CheckboxExample";
+import CheckboxExampleCode from "./CheckboxExampleCode";
 import InputFieldArrayExample from "./InputFieldArrayExample";
 import InputFieldArrayExampleCode from "./InputFieldArrayExampleCode";
 
@@ -31,6 +33,12 @@ const Examples = () => {
       description: "Form with only select fields",
       preview: <SelectItemExample />,
       code: <SelectItemExampleCode />,
+    },
+    {
+      title: "Checkbox",
+      description: "Form with only checkbox fields",
+      preview: <CheckboxExample />,
+      code: <CheckboxExampleCode />,
     },
     {
       title: "Basic Form",
