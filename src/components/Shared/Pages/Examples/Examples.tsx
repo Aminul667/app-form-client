@@ -8,6 +8,8 @@ import BasicFunction from "./BasicFunction";
 import BasicFunctionCode from "./BasicFunctionCode";
 import WatchFunction from "./WatchFunction";
 import WatchFunctionCode from "./WatchFunctionCode";
+import InputFieldArrayExample from "./InputFieldArrayExample";
+import InputFieldArrayExampleCode from "./InputFieldArrayExampleCode";
 
 const Examples = () => {
   const [activeTab, setActiveTab] = useState<"preview" | "code">("preview");
@@ -31,6 +33,12 @@ const Examples = () => {
       description: "Advance functions from react-hook-form",
       preview: <WatchFunction />,
       code: <WatchFunctionCode />,
+    },
+    {
+      title: "Input Field Array",
+      description: "Dynamic array field with text and numbers",
+      preview: <InputFieldArrayExample />,
+      code: <InputFieldArrayExampleCode />,
     },
   ];
 

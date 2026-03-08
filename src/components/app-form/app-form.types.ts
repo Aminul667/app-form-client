@@ -57,6 +57,27 @@ export interface FormCheckboxProps<T extends FieldValues> {
   isDisabled?: boolean;
 }
 
+// input field array props
+export interface InputFieldArrayProps<T extends FieldValues> {
+  name: Path<T>;
+  control: Control<T>;
+  label?: string;
+  placeholder?: string;
+  /**
+   * Input element type ("text", "number", etc.).
+   * When set to "number" the field will register with
+   * `valueAsNumber` so that RHF treats the value as a number.
+   */
+  type?: string;
+  errors?: FieldErrors<T>;
+  containerClass?: string;
+  inputClass?: string;
+  labelClass?: string;
+  addButtonText?: string;
+  addButtonClass?: string;
+  minFields?: number;
+}
+
 // file upload
 
 export type UploadZoneCtx = {
